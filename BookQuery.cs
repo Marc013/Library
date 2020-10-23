@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 
 namespace Library
 {
-    public class QueryData
+    public class BookQuery
     {
 
         public static void Author(List<Book> books)
@@ -89,6 +90,12 @@ namespace Library
             {
                 Console.WriteLine($"Rating '{rating}' not found.");
             }
+        }
+
+        public static int GetLastBookId(List<Book> books)
+        {
+            var lastBook = books.Last();
+            return lastBook.BookId;
         }
     }
 }

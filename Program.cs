@@ -16,24 +16,22 @@ namespace Library
             do
             {
                 action = DisplayMenu();
-            } while (action !>= 7);
+            } while (!Enumerable.Range(1, 6).Contains(action));
 
             switch (action)
             {
-                case 0: // DEZE WERKT NIET, MISSCHIEN MOET HET EEN 7 ZIJN.
-                    Console.WriteLine("Please provide a number [1 - 6]");
-                    break;
                 case 1:
-                    QueryData.Author(books);
+                    BookQuery.Author(books);
                     break;
                 case 2:
-                    QueryData.Year(books);
+                    BookQuery.Year(books);
                     break;
                 case 3:
-                    QueryData.Rating(books);
+                    BookQuery.Rating(books);
                     break;
                 case 4:
-                    Action(action);
+                    var test = BookAction.Add(books);
+                    Console.WriteLine(test);
                     break;
                 case 5:
                     Action(action);
@@ -66,15 +64,14 @@ namespace Library
 
         static public int DisplayMenu()
         {
-            Console.WriteLine("What action do you want to perform: ");
-            Console.WriteLine();
+            Console.WriteLine("What action do you want to perform: \n");
             Console.WriteLine("1. Get all books by author");
             Console.WriteLine("2. Get all books by year");
             Console.WriteLine("3. Get all books by rating");
             Console.WriteLine("4. Add book");
             Console.WriteLine("5. Remove book");
             Console.WriteLine("6. Exit");
-            Console.WriteLine("Enter the number: ");
+            Console.WriteLine("\nEnter the number: ");
             var result = Console.ReadLine();
             char firstCharacter = result[0];
             bool isNumber = Char.IsDigit(firstCharacter);
