@@ -46,6 +46,35 @@ namespace Library
             var publicationDate = NewDate();
             var publisher = NewText("Enter the publisher name");
 
+            var book = NewBookObject(id,
+                                      title,
+                                      author,
+                                      avarageRating,
+                                      isbn,
+                                      isbn13,
+                                      language,
+                                      numberOfPages,
+                                      ratingsCount,
+                                      textReviewsCount,
+                                      publicationDate,
+                                      publisher);
+
+            return book;
+        }
+
+        private static Book NewBookObject(int id,
+                                    string title,
+                                    string author,
+                                    decimal avarageRating,
+                                    string isbn,
+                                    long isbn13,
+                                    string language,
+                                    int numberOfPages,
+                                    int ratingsCount,
+                                    int textReviewsCount,
+                                    DateTime publicationDate,
+                                    string publisher)
+        {
             var book = new Book
             {
                 BookId = id,
@@ -186,6 +215,10 @@ namespace Library
         public static void Remove()
         {
             Console.WriteLine("Remove a single book");
+
+            // get book id
+            // Remove line with book id
+
         }
 
         public static void RemoveMenu()

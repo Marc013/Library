@@ -65,9 +65,9 @@ namespace Library
         static public int DisplayMenu()
         {
             Console.WriteLine("What action do you want to perform: \n");
-            Console.WriteLine("1. Get all books by author");
-            Console.WriteLine("2. Get all books by year");
-            Console.WriteLine("3. Get all books by rating");
+            Console.WriteLine("1. Get all books of author");
+            Console.WriteLine("2. Get all books of year");
+            Console.WriteLine("3. Get all books as of rating");
             Console.WriteLine("4. Add book");
             Console.WriteLine("5. Remove book");
             Console.WriteLine("6. Exit");
