@@ -8,21 +8,30 @@ namespace Library
 {
     class BookAction
     {
-        //public static List<Book> Add(List<Book> books) // should be void as it is to add a line to the csv
-        public static string Add(List<Book> books) // should be void as it is to add a line to the csv
-        //public static void Add(List<Book> books)
+        public static void Add(List<Book> books)
         {
             var newBook = NewBook(books);
 
-            //return newBook;
+            var newEntry = string.Join(",",
+                            newBook.BookId,
+                            newBook.Title,
+                            newBook.Author,
+                            newBook.AvarageRating,
+                            newBook.Isbn,
+                            newBook.Isbn13,
+                            newBook.Language,
+                            newBook.NumberOfPages,
+                            newBook.RatingsCount,
+                            newBook.TextReviewsCount,
+                            newBook.PublicationDate.ToShortDateString(),
+                            newBook.Publisher);
 
-            // add bookEntry to CSV
-            var newEntry = string.Join(",", newBook.Select(n => n.ToString()).ToArray()) + Environment.NewLine;
-            return newEntry;
-            //File.WriteAllText("books.csv", newEntry);
+            Console.WriteLine(newEntry);
+
+            File.AppendAllText("books.csv", newEntry + Environment.NewLine);
         }
 
-        private static List<Book> NewBook(List<Book> books)
+        private static Book NewBook(List<Book> books)
         {
             var id = NewId(books);
             var title = NewText("Enter the book title");
@@ -53,12 +62,7 @@ namespace Library
                 Publisher = publisher
             };
 
-            List<Book> newBook = new List<Book>
-            {
-                book
-            };
-
-            return newBook;
+            return book;
         }
 
         private static int NewId(List<Book> books)

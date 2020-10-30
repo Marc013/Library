@@ -11,6 +11,7 @@ namespace Library
         static void Main(string[] args)
         {
             var books = ProcessBooks("books.csv");
+            Console.WriteLine($"count: {books.Count}");
 
             int action;
             do
@@ -30,8 +31,7 @@ namespace Library
                     BookQuery.Rating(books);
                     break;
                 case 4:
-                    var test = BookAction.Add(books);
-                    Console.WriteLine(test);
+                    BookAction.Add(books);
                     break;
                 case 5:
                     Action(action);
